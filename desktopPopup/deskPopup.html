@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popup mit Drag & Drop</title>
+    <link rel="stylesheet" href="deskPopup.css">
+</head>
+<body>
+    <button id="openPopup">Popup Öffnen</button>
+
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span id="closePopup" class="close">&times;</span>
+            <div class="desktop">
+                <div class="icon" draggable="true" ondragstart="drag(event)">
+                    <img src="icon1.png" alt="Icon 1">
+                </div>
+                <div class="icon" draggable="true" ondragstart="drag(event)">
+                    <img src="icon2.png" alt="Icon 2">
+                </div>
+                <div class="icon" draggable="true" ondragstart="drag(event)">
+                    <img src="icon3.png" alt="Icon 3">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="deskPopup.js"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+@import url(colors.css);
+@font-face {
+    font-family: "VGA-text";
+    src: url(../fonts/PxPlus_IBM_VGA_8x16.ttf);
+}
+@font-face {
+    font-family: "VGA-h1";
+    src: url(../fonts/PxPlus_IBM_VGA_9x16.ttf);
+}
+
+
+footer {
+    width: 100%; /* Breite des Footers auf 100% setzen */
+    margin-top: auto; /* Den Footer am unteren Ende fixieren */
+    font-family: "VGA-text";
+    background-color: var(--grey);
+    padding: 20px; /* Optional: Abstand zum Inhalt */
+    display: flex;
+    justify-content: space-between; /* Elemente auf beiden Seiten ausrichten */
+    align-items: center; /* Zentriert vertikal */
+    box-sizing: border-box; /* Um sicherzustellen, dass das Padding innerhalb der Breite bleibt */
+}
+
+footer ul {
+    list-style-type: none; /* Listenpunkte entfernen */
+    display: flex; /* Links horizontal anordnen */
+    margin: 0; /* Margin zurücksetzen */
+    padding: 0; /* Padding zurücksetzen */
+}
+
+footer ul li {
+    margin-right: 15px; /* Abstand zwischen den Links */
+}
+
+footer .copyright {
+    color: var(--black); /* Farbe für den Copyright-Text */
+    margin-left: 20px; /* Abstand zu den Links auf der linken Seite */
+}

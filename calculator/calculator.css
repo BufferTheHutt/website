@@ -1,0 +1,222 @@
+@import url(../style/colors.css);
+@font-face {
+    font-family: "C64-Mono";
+    src: url(../fonts/C64_Pro_Mono-STYLE.ttf);
+}
+@font-face {
+    font-family: "C64-Pro";
+    src: url(../fonts/C64_Pro-STYLE.ttf);
+}
+
+.Calculator-Popup {
+    font-family: 'C64-Pro';
+    color: var(--dark-grey);
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 40%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    border: 4px solid var(--grey);
+    background-color: var(--black);
+    box-shadow: 12px 12px var(--black);
+    z-index: 16;
+}
+
+.calculator-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    border-bottom: 4px solid var(--grey);
+}
+
+.calculator-title {
+    font-weight: bold;
+}
+
+.closeCalculator-btn {
+    background-color: var(--black);
+    color: var(--dark-grey);
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'C64-Pro';
+    border: 3px solid var(--dark-grey);
+    line-height: 15px;
+    text-align: center;
+    padding: 0;
+}
+
+.closeCalculator-btn:hover {
+    color: var(--green);
+    border: 3px solid var(--green);
+}
+
+.calculator-body {
+    padding: 12px;
+}
+
+.calc-display {
+    background-color: #000;
+    border: 2px solid var(--grey);
+    padding: 10px;
+    margin-bottom: 18px;
+    text-align: right;
+    font-size: 20px;
+    height: 40px;
+    line-height: 20px;
+}
+
+.calc-buttons {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; /* Ensures all columns are the same width */
+}
+
+@import url(../style/colors.css);
+@font-face {
+    font-family: "C64-Mono";
+    src: url(../fonts/C64_Pro_Mono-STYLE.ttf);
+}
+@font-face {
+    font-family: "C64-Pro";
+    src: url(../fonts/C64_Pro-STYLE.ttf);
+}
+
+.Calculator-Popup {
+    font-family: 'C64-Pro';
+    color: var(--dark-grey);
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 40%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    width: 340px;
+    border: 4px solid var(--grey);
+    background-color: var(--black);
+    box-shadow: 12px 12px var(--black);
+    z-index: 16;
+}
+
+.calculator-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    border-bottom: 4px solid var(--grey);
+}
+
+.calculator-title {
+    font-weight: bold;
+}
+
+.closeCalculator-btn {
+    background-color: var(--black);
+    color: var(--dark-grey);
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'C64-Pro';
+    border: 3px solid var(--dark-grey);
+    line-height: 15px;
+    text-align: center;
+    padding: 0;
+}
+
+.closeCalculator-btn:hover {
+    color: var(--green);
+    border: 3px solid var(--green);
+}
+
+.calculator-body {
+    padding: 12px;
+}
+
+.calc-display {
+    background-color: #000;
+    border: 2px solid var(--grey);
+    padding: 10px;
+    margin-bottom: 18px;
+    text-align: right;
+    font-size: 20px;
+    height: 40px;
+    line-height: 20px;
+}
+
+.calc-buttons {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; /* Ensures all columns are the same width */
+}
+
+.top-row td {
+    width: 33.33%; /* Each cell in the top row takes up one-third of the width */
+}
+
+.other-row td {
+    width: 25%; /* Each cell in the top row takes up one-third of the width */
+
+}
+
+.calc-buttons td {
+    padding: 20px;
+    text-align: center;
+    background-color: #000;
+    border: 2px solid var(--grey);
+    color: var(--dark-grey);
+    cursor: pointer;
+    font-size: 18px;
+    font-family: 'C64-Pro';
+}
+
+.calc-buttons td:hover {
+    background-color: var(--black);
+    border: 2px solid var(--green);
+    color: var(--green);
+}
+
+#calc-overlay {
+    display: none;
+    position: fixed;
+    /* opacity: 0; */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 15;
+    background-color: rgba(43, 36, 104, 0.6);
+}
+
+
+.calc-buttons td {
+    padding: 20px;
+    text-align: center;
+    background-color: #000;
+    border: 2px solid var(--grey);
+    color: var(--dark-grey);
+    cursor: pointer;
+    font-size: 18px;
+    font-family: 'C64-Pro';
+}
+
+.calc-buttons td:hover {
+    background-color: var(--black);
+    border: 2px solid var(--green);
+    color: var(--green);
+}
+
+#calc-overlay {
+    display: none;
+    position: fixed;
+    /* opacity: 0; */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 15;
+    background-color: rgba(43, 36, 104, 0.6);
+    filter: blur(100px);
+}

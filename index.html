@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nexus Vault</title>
+  <link rel="stylesheet" href="style/colors.css" />
+  <link rel="stylesheet" href="style/style.css" />
+  <link rel="stylesheet" href="style/header.css" />
+  <link rel="stylesheet" href="style/footer.css" />
+  <link rel="stylesheet" href="style/content.css" />
+  <link rel="stylesheet" href="calculator/calculator.css">
+
+
+  <script src="script/dropdown.js"></script>
+  <script src="script/sidebar.js"></script>
+</head>
+
+<body>
+  <div class="screen" id="screen">
+    <img src="img/scanlines.png" id="scan">
+    <img src="img/bezel.png" id="bezel">
+    <div class="screen-content">
+      <header>
+        <nav class="navbar">
+          <ul>
+            <li><a href="">index</a></li>
+            <li><a href="#link-container">links</a></li>
+            <li><a href="">contact</a></li>
+           
+
+            <li><a target="_blank" href="www.tor-project.com">erweitert</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <!-- Calculator-->
+      <div id="openCalculator" class="Calculator-Popup">
+        <div class="calculator-header">
+          <span>Calculator</span>
+          <button id="closeCalculator" class="closeCalculator-btn">&times;</button>
+        </div>
+        <div class="calculator-body">
+          <div class="calc-display" id="calc-display">rechne...</div>
+          <table class="calc-buttons">
+            <!-- Calculator buttons -->
+            <tr>
+              <td onclick="closeOperation()">XXX</td>
+              <td></td>
+              <td onclick="resetOperation()">res</td>
+              <td onclick="deleteOperation()">del</td>
+            </tr>
+            <tr>
+              <td onclick="appendOperation(7)">7</td>
+              <td onclick="appendOperation(8)">8</td>
+              <td onclick="appendOperation(9)">9</td>
+              <td onclick="appendOperation(' / ')">/</td>
+            </tr>
+            <tr>
+              <td onclick="appendOperation(4)">4</td>
+              <td onclick="appendOperation(5)">5</td>
+              <td onclick="appendOperation(6)">6</td>
+              <td onclick="appendOperation(' * ')">x</td>
+            </tr>
+            <tr>
+              <td onclick="appendOperation(1)">1</td>
+              <td onclick="appendOperation(2)">2</td>
+              <td onclick="appendOperation(3)">3</td>
+              <td onclick="appendOperation(' - ')">-</td>
+            </tr>
+            <tr>
+              <td onclick="appendOperation('.')">.</td>
+              <td onclick="appendOperation(0)">0</td>
+              <td onclick="calculateResult()">=</td>
+              <td onclick="appendOperation(' + ')">+</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div id="calc-overlay"></div>
+      <!-- Calculator ENDE-->
+
+
+
+      <!-- Inhalte -->
+      <div id="screen-content">
+        <div class="Textblock">
+          <div class="Hinweise-Titel">
+            <h2>
+              **** Cybersecurity UTILITY **** - V0.21.8 <br />
+              IT-Forensik und ethical Hacking!
+            </h2>
+            <h3>BIOS Version 1.12</h3>
+            <p>
+              Hinweise: <br />
+              - Verwende ethische und legale Praktiken. <br />
+              - Sei stets wachsam und geschuetzt.
+            </p>
+          </div>
+          <div class="mein-profil">
+            <div>
+              <h4>Mein Profil</h4>
+            </div>
+            <div class="beschreibung">
+              <p>
+                Ich bin beruflich IT-Forensik Analyst. <br />
+                In meiner Freizeit bin ich leidenschaftlicher Cybersecurity
+                Forscher. <br />
+                Programmieren, Schwachstellen finden und CTF-Herausforderungen
+                loesen gehoeren zu meinen absoluten Lieblingsbeschaeftigungen
+                in meiner Freizeit. <br>
+                D̴͓̓̀́i̵͔̩͙͔͂́́̓e̷̢͙̎͆͌̏͗ş̴͉̉̊̀̽ĕ̶̡̠̘̭͖̲̱̺̏̌͌̑̍̚r̸̨̼͕̖͂̿̾͑̽
+                ̴͔̰̠̗̫̈̒T̸͕͚͈͕̰̬͍̏̓ͅé̶̡͋͋̆̈́́x̷̨̩͍̝̦̜̻̽̈́̀͘͘t̸̨̢̗̭͐̂̈́͋
+                ̷͕̞̈́̋͐́͠͝ś̶̬̭͎͜î̷̙̍̕ḛ̶̝͕̪͍̻̝̲̽̾̅̆̈́̋̇h̸̘͚̩̜̱̔t̵̰̩͚̼̼̭̻̺̀̿̔̐
+                ̴̤͕̹̼͇͕̼͙̀͋͆̿̀̀̇͝ą̵̡̖͖̻͉̫̲̄̃͌̈̅̓̃͝ū̸͎̲͚̄͒͛͝s̵͓͖̺͌̀̀̽̓,̸̡̮̳͍̗͉̀̕
+                ̸̏̏͜a̵̢͕̟̺̱̤̼͋̈́̂͗̾ͅl̸̛̝̭̼̰̯͂̈́̏́́͠ş̸̢̛̤̭͙͉̬̎̀͗̄
+                ̴̬͖̑͂̅̇̌̉̚w̸̡͔̞͋̋̅̄ų̸̛̩͈̠̮̙̋͌̏͘e̴̛̙̞͚̐̒̋r̷̗͍̭͕̖͉͈̂̈́d̷̡̳̺͖̀͆͆̒̌͝ē̵̡̲͉̺͉͔̟̑͂̈̑̈́̍
+                ̶̱̙͙̭̿͛ĕ̴̬͇͇̩̞͈̻ṭ̵̡̰̲̭̈́́̓͝ŵ̴̻a̸̙̻͎̖̔̑͒̑ͅṣ̶̯̈̓͑͌
+                ̴̥̖̤͎̫̂̂̽͂̈̾͂͠ͅñ̴̯̙͋i̵̢͖̝͉̮̭̗̔̆͐̌͜c̴̢̨͙̩̜̮̺̬͑h̴̲̥̬̰̦͚́t̸͙̥͕̽̈́̎̆̽̈́́ͅ
+                ̶̡̬̻̙̗͇̺̔͌̒̎́̽͌͒͜ś̶͈͗͆̐t̵͖͓̞̺̩̬̘̉̄̆̆́̌͘i̸̹̗͇̎̽͑̓̌̓̅̓m̸̲̻͛̈́͜m̸̡̤̝̗̓̈͂̒ė̶̝̦̺̋͘n̵̡̩̣̰̙̰̯̈̈́̾͠,̸̪̘̭̼̋̏̾̃
+                ̶͔̻̿̓̾́̕a̶̖͚̙͖͚͙̯̳̎̀̇̆͝͠b̶̠̓͐̏̾̈́̐e̶̪͉͍̠̟̟͒̈́̌̕͘͝͝r̸̈́͗̓̍͠ͅ
+                ̶̭̟̯̫̲̼̬̊͑̋͠ķ̵̢͕̳̲́̔̃̉̂e̴̮̣̠̠͊̂̃͛͘͜i̸͚̩̤̩̠͕̇̋n̶͕̦̤̦̦̫͓̯͑͊e̵̞̐̌̾
+                ̶̟̲̣̘̬̲͍̳́͒͒̈́̃͝S̶̝̰͉̬̩̚ő̸̮̤̥̼̱r̸͚͔̣͙͒͛̾͒̎͠͠g̶̢̡̠͖̳͖̉̅̉́̓è̴̫̀͗̃̽̔̕,̵̢̛̙̻̙̭̦̠̿̅́́͒̈́̎ <br>
+                i̷̧̢̧̬͖̟̗̹̥̇̃͒̿̀͝c̵̛̛̖̲̮̞̫̮͇̰̫̗͍̞̩̖͍̩͇̦̏̈́͗̏̃̾̔̌̍̓̆̕͜ͅͅḩ̵͙̪̯̟̬́̂̓͛̋̅̀͑̆͌̈́̆̕͘͝
+                ̷͔̼̣̘̬̩͍͉̥͔̦̹͙̰̳͖̯̀͂̂͆̐̽̓̔͌͛͂̓̏̏̉͆̎͐͜͝͝g̸͇̯̟̤̲̖͕̱̰̙͌̉̈́̈̈́̅͐̇̋͛͘͝ä̵̧̙͎͔̫̜̳̳͚̘̟͈̞͉́͊̊͂͝͠ͅr̶̨̗̹̲̱̙̠̯̗̙̳̟̙͍͓̦̥̟̩͈͊̏̾̓ͅą̴̨͇̙͚̰̬̘̙̝̬̼̮̪̗͉͕̓̎̊͛̍̈́͋̂̀̊̎̑̎͌͑̚ņ̸̡̹͚̦̝̳̟̘͈͖̱̬͇̌ͅẗ̷̢͔͕͔̭́̏̓̐̔̏̅͗̐̐̉͗̃͂͒̿̑̓́̈́͛̈͜͠͝ͅͅi̵̛͙̰̺͆̈̈́͆̅̍̃̆͑̏̾͝͠͝͠e̶̛̥̫̙͖͓̗̎͐͋̔͆͊̔̆̽͆̌̇̔̈̕͝͝͠ͅṛ̸̡̨̧̣̹̭̳͕͕͖̰̝͉͇̳̰̪̲̞̊͆̌́̕ͅͅë̶̢̧͉̬̝̳̪̠̰́́̊̔̈́̈́͆̓̈͐͌̚
+                ̴̨̨̣̠̦̟͔̘͍̞̺̤̯̬͈͕̮̌̅́̑͝Ḓ̷͈̰̻͉̞̱͖̰̤͔͇̺͊́̐̈́̇̌̐̍͑̓̀̑̎͗͆̓͐̎̍͝ì̷̗̥͎̯̣̠̭͉̦̩̼͍̠̼̌́̅̿̊̈̃͊͂̃̃͊̄̀̈̐̎̈́͘̚̚͜ȑ̶̢̡̧̛̝͙͈͉̺̣͙͈̣̜͚͔̐̈́̔̓̋̋̓̀̾͒̏̑́́̊̕͜͝͝,̵̨͖̫̯̫̰̮̭̤̪͚̹͕͆́͐̏̊̒̎́̒̐́̓̈́̿̉͂̚
+                ̷̧̡̘͈͇̩̲̟̗̗̯̺͎̻̬̠̪̣͆̔͜ͅḏ̴̨̢̦̩̣͖̗̫̟͍̞̬̦̠̦̻̫̔͊͒̆̓̋͜͠͝ͅa̷̛͎̩̻͖̲͖͙̠̘͎̻̼͚̫͈̣̲̞̻͕̜̐͆͗̀̾͊̎̊̊̇͂͊̈́̈́̓̊̕̚̚͜͜͠͝ş̴̛͓̦̱̻̳̯̪͇̼͉̗̤̠͓̖̬̙̟͉̄̍̈͐͊̄͗̈́͝ś̷̼̩̥̪̽̑̀̚
+                ̶̨̥̘̹̗͔̘̤͇̻͇̜̯̘͈̆̊̓̎̚͝ͅd̴̢̿̓̈́̔̈́̚͝ī̷̖̹̳̊̎̀̓̆̂̽͛͠͝ͅë̸̛̫̭̫̱͔̞͕́̀̐̏͗̒̋̓͊͋͆̈͐͗̊́̕͝͝ͅs̸̛̳̩̬̮̱̩͙͍̳͉̥̯͓͙̭͍̪̭̅̀̊̀̈́͐̂̒̾̈́͊́͆̇̑̚͝e̵̩͕͖̱̤͖͙̭̤͇̹̹̯̮̼̗̮̥̠̫̜͋̍̐̃̍͑ͅ
+                ̸̛̲͙̞̮̼̬͙͉̽̿́̈̀̑̂̉́̈͒́̀̐͐̀̇̇̚͠͝S̵̝̮͓͛̄͗̅̽̽ͅę̶̲̹͎̖̣̮̙̯̱̳̙͍̬̱͎̞̯̙̿͂̈̒i̴̤̲̩̪͓͍̙͇͖̜̰̘̭̱̒̂̍͆̐̅͗̉̑̑͆͑̊̊̒͒͐͊̎͐̌̿̋͊͜ẗ̵̛̲̲́̀̔͌̍̄͛͐̎̐̃̀̿̈́̔͛͂͠ę̸̢̡͓̯͇̣̖̖̲̻̬͍̮̯̰͔̱̪̫̑
+                ̵̨̢͕̦̪̙̫͓̗̝̩̲͍̞̱̟̩̝̟̲͖̘́ḭ̴̢̧̢̧̳̫̪̤͖͈̞͇͈͔͊̾̋̐n̸̛̜̠̖͈̰̙̰͕̗͈̳͒͌̔̃̄̓̒͆̂͋̏̓͛̿̃̈͘͜͝
+                ̴̧̧̨͙̠̮̼̫͕͇̭͍̮̫̳͖͍͙̣̓̀̏̄̊̉́̐͌̿O̷̧̢͙̩̱̲̝̠͍͖̫̪̹̣̠̙͛̓͛̾͆́͝ṙ̸͓͕̼͍̹̌͋̒̀̇̾̽̈̇̾̎̌́̌̔͗͒̉̽͛̚̕͝ḑ̶̨̨͙̠͕̪̭̣̝͓͉͓̬̲̖̝̙̰̦̖̬̞̓͜n̴̢̛̩͈̩̼̻̮͈̰͕̟̯̘̙̰̺̙͉̺̺̐͋͑͂̎̉́̑̏̑̂͂̂̈́̉̅̔̉̕̚͝ͅư̶͙̲̱̣͎̼͖̬̎͐͋̋͐̂̀̇̎͌̈̑̕ņ̸͓͔̲̎̅̀͒̋̑͒̈́̃͛̋̈̃̊̉̋̓͗̂̕̕͠͝͠g̴̛͍̜͕͂̓̓̋͗̇̄̈́͋͝
+                ̴̛̝̩̀̒͑̉̉́͒̇̏͘͝ḭ̸̥̬̣̖̽̽̓͌̑̎̽̏͑̏̕͘͠ş̵̺͓̗͚̦̰̜̲̽̇̄̈͑̍̾̆̀͐͌̅̋̌̐̕͜ͅͅt̸̨̛͕͈̞̙̪͖̻͍͍̺̞͔̣̠͕͕̗̙̓̔̿̿́̏̌͆̽̿͐̍̎͜͜͝͠
+                ̶̢̧̧͈̳̝͕̱̞͉̠̘̥̬̭̞̦̦͓͓̹͔͉̩̌̋͑̆̾͘̕͘-̵̢̛̺̹̦̰̪̭̬̙͍̪͇̥̺̹̋͋͐͂̅̂͐̽̐̌̇͋̏͂̿̓̔̐͘͘͝
+                ̴̧͎̣̭̟͖̤̖̪̣̺͔̖̱͓̈́̊̇͒͠ͅͅͅḩ̴̨̉̓̽͑́̀͋̏̌̉͗͛̄́̄̉̍̓̽̚͝o̷͈͆̔̆̿̅͋̌f̷̜̳̞̰̼͙̼̙̥̼̝̝̯̿̂͑͛̽͆̔̆͒̈́̄̄̎͑͂̓́̚f̴͈͍̻̙̻̂̃̒̀̅̍̊̄ė̸̛̘͈̝̪̤̲͇̅̉͆̆̓͐̃̓̏́́ņ̷̧͙͚̥̹̖̬̯̳͗̽̈́̊͆̓̓̽͂̃̏̈́́́̎̓͆̌̽͝͠t̸̛̻́͒́̕͠l̶̥̮̲͎̬͋͐̈́̅̇̈́̒͌̂̏͊̕͝͝͝i̸̝̺͚͎̹͋͐̎͆͆̿̽͌̔́̈́̅̔̓̂c̸̛̻͎̯̭͇̟̈͋̐́̄̅̂́̍̈͒͗̋̒͋̚͝͝h̵̟̗̬̟̰̿̔̐̏̓͝
+                ̵̧̧̛͓̠͙̠̰̙̯͎̙̈́̇̍͜͜:̷͉̺̈́̽́̈́͌͑̇́͘̚̚-̵̨̻͉̻̙͕͉͇̰͇̬̗͔͎̬͍̲͂̾̿͆̌D̵̩̥̰̹̗̙̩̠̰̱̖̾̈́̑́ͅ
+
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- INHALT KATEGORIEN -->
+      <div class="main-content">
+        <!-- FORENSIK CONTAINER -->
+        <div class="forensik-container">
+          <div>
+            <h2>IT-Forensik</h2>
+          </div>
+
+          <div class="sub-forensik-container">
+            <div class="forensik-kategorien">
+              <h3>Computer Forensik</h3>
+              <ul>
+                <li class="dropdown" id="windowsForensik">
+                  Windows Forensik
+                  <ul class="Windows-Forensik-Projekte dropdown-menu">
+                    <li><a target="_blank" href="">Windows Forensik 1</a></li>
+                    <li><a target="_blank" href="">Windows Forensik 2</a></li>
+                    <li><a target="_blank" href="">Windows Forensik 3</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown" id="linuxForensik">
+                  Linux Forensik
+                  <ul class="Linux-Forensik-Projekte dropdown-menu">
+                    <li><a target="_blank" href="">Linux Forensik 1</a></li>
+                    <li><a target="_blank" href="">Linux Forensik 2</a></li>
+                    <li><a target="_blank" href="">Linux Forensik 3</a></li>
+                  </ul>
+                </li>
+                <li>Server Forensik</li>
+              </ul>
+            </div>
+            <div class="forensik-kategorien">
+              <h3>Mobile Forensik</h3>
+              <ul>
+                <li>Android</li>
+                <li>iOS</li>
+              </ul>
+            </div>
+
+            <div class="forensik-kategorien">
+              <h3>Digitale Forensik</h3>
+              <ul>
+                <li>Imaging</li>
+                <li>Data Recovery</li>
+                <li>RAM Analyse</li>
+                <li>IOC Editor</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- TOOLS CONTAINER -->
+        <div class="tools-content">
+          <div>
+            <h2>TOOLS</h2>
+          </div>
+          <div>
+            <p>Benutze diese Tools nicht für illegale Zwecke!</p>
+          </div>
+
+          <div class="sub-tools">
+            <div class="tool-category">
+              <h4>Python</h4>
+              <ul>
+                <li>Windows Forensik</li>
+                <li>Linux Forensik</li>
+                <li>Server Forensik</li>
+              </ul>
+            </div>
+            <div class="tool-category">
+              <h4>BASH</h4>
+              <ul>
+                <li>Windows Forensik</li>
+                <li>Linux Forensik</li>
+                <li>Server Forensik</li>
+              </ul>
+            </div>
+            <div class="tool-category">
+              <h4>RUST</h4>
+              <ul>
+                <li>Windows Forensik</li>
+                <li>Linux Forensik</li>
+                <li>Server Forensik</li>
+              </ul>
+            </div>
+            <div class="tool-category">
+              <h4>JAVA SCRIPT</h4>
+              <ul>
+                <li id="openCalculatorLink">Calculator</li>
+                <li>Linux Forensik</li>
+                <li>Server Forensik</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJEKTE CONTAINER -->
+        <div class="projekte-hauptblock">
+          <div>
+            <h2>Portfolio Projekte</h2>
+          </div>
+          <div>
+            <p>Aktuelle und gefahrene Projekte</p>
+          </div>
+        </div>
+        <div class="Projekte-Inhaltsblock">
+          <div class="projekt-kategorie">
+            <h3>Pentesting</h3>
+            <ul>
+              <li>SQL Map</li>
+              <li><a target="_blank" href=""></a>MySQL</li>
+              <li>
+                <a target="_blank" href="https://py-sec.notion.site/OWASP-TOP-10-a87d9b4ccaf14f5eb1a4433fc053e9c0?pvs=4">OWASP Top 10
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- LINKS CONTAINER -->
+        <div class="links-headline" id="link-container">
+          <div>
+            <h2>Links & Ressourcen</h2>
+          </div>
+          <div>
+            <p>Nuetzliche Dokumente, Vorlagen und Artikel!</p>
+          </div>
+        </div>
+        <div class="links-content">
+          <div class="sidebar">
+            <div class="sub-sidebar">
+              <ul>
+                <li>
+                  <a href="#" target="_blank" class="category" data-category="forensik">Forensik</a>
+                </li>
+                <li>
+                  <a href="#" target="_blank" class="category" data-category="netzwerk">Netzwerk</a>
+                </li>
+                <li>
+                  <a href="#" target="_blank" class="category" data-category="sigint">SIGINT</a>
+                </li>
+                <li>
+                  <a href="#" target="_blank" class="category" data-category="coding">Coding</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="sichtbare-links">
+            <div class="links" data-category="forensik">
+              <ul>
+                <li>
+                  <a target="_blank"
+                    href="https://www.bsi.bund.de/SharedDocs/Downloads/DE/BSI/Cyber-Sicherheit/Themen/Leitfaden_IT-Forensik.pdf?__blob=publicationFile&v=1">>
+                    BSI-Leitfaden</a>
+                </li>
+                <li>
+                  <a target="_blank" href="https://www.ntfs.com/jpeg-signature-format.htm">> JPEG Signature Recovery</a>
+                </li>
+                <li>
+                  <a target="_blank" href="https://wiki.ubuntuusers.de/Partitionierung/Grundlagen/">> Partitionierung Grundlagen</a>
+                </li>
+              </ul>
+              <ul>
+                <li>
+                  <a target="_blank" href="https://www.ntfs.com/jpeg-signature-format.htm">> Vorlagen</a>
+                </li>
+                <li>
+                  <a target="_blank" href="https://www.ashemery.com/dfir.html">> Uebungsfaelle</a>
+                </li>
+                <li><a target="_blank" href="https://www.ashemery.com/dfir.html">> Linux CheatSheet</a></li>
+                <li><a target="_blank" href="https://py-sec.notion.site/Windows-Forensics-188ec6ca59b24e9ba2fbc95e385d77e5?pvs=4">>
+                    Windwos CheatSheet</a></li>
+              </ul>
+            </div>
+            <div class="links" data-category="netzwerk">
+              <ul>
+                <li><a target="_blank" href="https://skillsforall.com/resources/lab-downloads?courseLang=de-DE">CISCO Packet Tracer</a>
+                </li>
+                <li>Netzwerk 2</li>
+                <li>Netzwerk 3</li>
+              </ul>
+              <ul>
+                <li>Netzwerk 4</li>
+                <li>Netzwerk 5</li>
+                <li>Netzwerk 6</li>
+              </ul>
+            </div>
+            <div class="links" data-category="sigint">
+              <ul>
+                <li><a target="_blank" href="https://en.wikipedia.org/wiki/National_Security_Agency">> National Security Agency</a></li>
+                <li><a target="_blank" href="https://en.wikipedia.org/wiki/Special_Source_Operations">> Special Source Operations</a>
+                </li>
+                <li><a target="_blank" href="https://en.wikipedia.org/wiki/Tailored_Access_Operations">> Tailored Access Operations </a>
+                </li>
+                <li><a target="_blank" href="https://de.wikipedia.org/wiki/Echelon">> Echolon</a></li>
+                <li><a target="_blank" href="https://de.wikipedia.org/wiki/Gro%C3%9Fer_Lauschangriff">> Grosser Lauschangriff</a></li>
+                <li><a target="_blank" href="https://de.wikipedia.org/wiki/Weltweite_automatisierte_Massen%C3%BCberwachung">>
+                    Automatisierte Massenueberwachung</a></li>
+                <li><a target="_blank" href="https://de.wikipedia.org/wiki/Globale_%C3%9Cberwachungs-_und_Spionageaff%C3%A4re">> Globale
+                    Ueberwachungs- und Spionageaffäre</a></li>
+                <li><a target="_blank" href="https://de.wikipedia.org/wiki/Radom_(Antennenkuppel)">> RADOM</a></li>
+                <li><a target="_blank" href="https://de.wikipedia.org/wiki/Network-TAP">> Network-TAP</a></li>
+                <li><a target="_blank" href="https://en.wikipedia.org/wiki/Fiber_tapping">> FIBER TAP</a></li>
+
+
+              </ul>
+            </div>
+            <div class="links" data-category="coding">
+              <ul>
+                <li>Coding 1</li>
+                <li>Coding 2</li>
+                <li>Coding 3</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FOOTER -->
+      <footer>
+        <!-- Links - Footer -->
+        <ul>
+          <li><a target="_blank" href="https://int10h.org/oldschool-pc-fonts/">Font</a></li>
+          <li>
+            <a target="_blank" href="https://quals.rumble.host/pages/home/">Design Inspiration</a>
+          </li>
+          <li><a target="_blank" href="">contact</a></li>
+        </ul>
+        <!-- Copyright - Footer -->
+        <div class="copyright">
+          © 2024 IT-Forensik und Cybersecurity Webseite
+        </div>
+      </footer>
+    </div> <!-- Ende Screen Content -->
+  </div> <!-- Ende Screen  -->
+  <!-- Skripte -->
+  <script src="script/open_calculator.js"></script>
+  <script src="calculator/calc-operations.js"></script>
+</body>
+
+</html>

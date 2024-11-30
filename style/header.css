@@ -1,0 +1,56 @@
+@import url(colors.css);
+@font-face {
+    font-family: "C64-Mono";
+    src: url(../fonts/C64_Pro_Mono-STYLE.ttf);
+}
+@font-face {
+    font-family: "C64-Pro";
+    src: url(../fonts/C64_Pro-STYLE.ttf);
+}
+
+
+header {
+    margin: 0%;
+    width: 100%;
+}
+
+nav {
+    background-color: var(--grey);
+    height: 35px;
+    
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+    padding: 0px 25px;
+    gap: 15px;
+    height: 100%; /* Stellt sicher, dass ul die volle Höhe von nav einnimmt */
+}
+
+nav a {
+    display: flex;
+    font-family: "C64-Pro";
+    text-decoration: none;
+    color: var(--black);
+    padding: 5px 20px; /* Horizontalen Abstand hinzufügen */
+    height: 100%; /* Höhe des Links auf die volle Höhe der Navbar setzen */
+    align-items: center; /* Zentriert den Text vertikal */
+}
+
+nav a:hover {
+    background-color: var(--black);
+    color: var(--grey);
+    text-decoration: underline;
+}
+nav ul li:last-child {
+    margin-left: auto; /* Verschiebt das letzte Element (erweitert) nach rechts */
+}
+
+/*
+nav ul li:nth-child(4) {
+    margin-left: auto; 
+}
+*/

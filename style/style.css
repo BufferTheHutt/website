@@ -1,0 +1,95 @@
+@import url(colors.css);
+@font-face {
+    font-family: "C64-Mono";
+    src: url(../fonts/C64_Pro_Mono-STYLE.ttf);
+}
+@font-face {
+    font-family: "C64-Pro";
+    src: url(../fonts/C64_Pro-STYLE.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "C64-Pro";
+}
+
+h1 {
+    font-family: "C64-Pro";
+}
+
+
+body {
+    background-color: var(--blue);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Zentriert horizontal   */
+    justify-content: center; /* Zentriert vertikal   */
+    min-height: 100vh; /* Mindesthöhe des Viewports   */
+    margin: 0; /* Entfernt den Standardrand des Body   */
+    padding: 0; /* Entfernt die Standardauffüllung des Body  */
+}
+ 
+
+
+#screen {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--blue);
+}
+
+#scan {
+    opacity: 50%;
+
+}
+
+#bezel {
+    box-shadow: inset 0px 0px 125px 60px black;
+}
+
+#scan, #bezel {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 100; /* Scanlines und Bezel nach vorne bringen */
+
+}
+
+.screen-content {
+    position: relative;
+    margin: 10px;
+    margin-left: 60px;
+    height: 97vh;
+    padding: 65px;
+    box-sizing: border-box;
+    border-radius: 10px; /* Optional: Rundet die Ecken des Inhaltsbereichs ab */
+    z-index: 99;
+    overflow: scroll;
+    /*
+    text-shadow: 2px 2px 4px rgb(158, 158, 158); */
+    
+}
+
+.screen-content h1 h2 h3 {
+    text-shadow: 
+                -5.5px 0 red,  /* Linker Rand rot */
+                5.5px 0 cyan;  /* Rechter Rand cyan */
+}
+
+/* Für moderne Browser */
+::selection {
+    background: rgb(245, 241, 129);
+    color: black;
+}
+
+/* Für Firefox */
+::-moz-selection {
+    background: dark-grey;
+    color: black;
+}

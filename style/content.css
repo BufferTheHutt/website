@@ -1,0 +1,519 @@
+@import url(colors.css);
+@font-face {
+    font-family: "C64-Mono";
+    src: url(../fonts/C64_Pro_Mono-STYLE.ttf);
+}
+@font-face {
+    font-family: "C64-Pro";
+    src: url(../fonts/C64_Pro-STYLE.ttf);
+}
+
+
+/* STARTER BLOCK CONTAINER */
+.Textblock {
+  font-family: "C64-Pro";
+  color: var(--orange);
+  padding: 5px 15px;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+  margin-left: 0; /* Links bündig */
+}
+
+.Textblock h1 {
+  color: var(--orange);
+  margin-top: 25px;
+  
+}
+
+.Textblock h2 {
+  color: var(--orange);
+  padding: 15px 0px;
+  /* text-shadow: 
+                -5.5px 0 8px  red,  /* Linker Rand rot 
+                5.5px 0 8px  cyan;  /* Rechter Rand cyan */
+}
+/*
+.Textblock h3 {
+  text-shadow: 
+                -2.5px 0 5px   rgba(0, 255, 255, 0.7),  /* Linker Rand rot 
+                2.5px 0 5px  rgba(0, 255, 255, 0.7);  /* Rechter Rand cyan 
+}
+*/
+.Hinweise-Titel p {
+  color: var(--orange);
+  margin-bottom: 10px;
+  padding: 0 155px;
+}
+
+/* mein Profil */
+
+.mein-profil {
+  width: 85%;
+  max-width: 1450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  font-size: large;
+  gap: 5px;
+  
+}
+/*
+.mein-profil h4 {
+  text-shadow: 
+  -3.5px 0 8px  red,  /* Linker Rand rot 
+  7.5px 0 8px  cyan;  /* Rechter Rand cyan 
+}*/
+
+.beschreibung {
+  border: 2px solid var(--grey);
+  padding: 15px;
+  margin-bottom: 25px;
+}
+
+/* HAUPT-INHALT */
+
+.main-content {
+  width: 90%;
+  max-width: 1450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Zentriert den Inhalt horizontal */
+  justify-content: center; /* Zentriert den Inhalt vertikal */
+  margin: auto; /* Automatischer Rand um den Container zu zentrieren */
+}
+
+
+/* IT-Forensik Container */
+.forensik-container {
+  width: 100%;
+  max-width: 1450px;
+  margin: 15px auto;
+  padding: 30px 20px;  /* Adjust padding */
+  background-color: var(--orange);
+  font-family: "C64-Pro";
+  position: relative;
+}
+
+.forensik-container h2 {
+  background-color: var(--grey);
+  padding: 10px 20px;
+  display: inline-block;
+  position: absolute;
+  top: -20px; /* Adjust this value to control how much the header sticks out */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  text-transform: uppercase;
+  color: var(--orange);
+  font-family: "C64-Pro";
+  /*box-shadow: 12px 12px 1px rgba(0, 0, 0, 0.9);*/
+}
+
+
+.sub-forensik-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0px;
+}
+
+.forensik-kategorien {
+  flex: 1;
+  margin: 0 10px;
+  background-color: var(--blue);
+  padding: 20px;
+}
+
+.forensik-kategorien h3 {
+  margin-top: 0;
+  text-align: center;
+  color: var(--grey);
+  text-transform: uppercase;
+  padding-bottom: 10px;
+  font-family: "C64-Pro";
+  font-size: 19px;
+  border-bottom: 2px solid var(--grey);
+}
+
+.forensik-kategorien ul {
+  list-style-type: none;
+  padding: 15px 10px;
+}
+
+.forensik-kategorien ul li {
+  color: var(--grey);
+  margin-bottom: 10px;
+  text-indent: 10px;
+  position: relative;
+  cursor: pointer;
+}
+
+.forensik-kategorien ul li:before {
+  content: ">";
+  position: absolute;
+  left: -25px;
+  color: var(--grey);
+  font-weight: bold;
+}
+.forensik-kategorien ul li:hover {
+  background-color: var(--black);
+  color: var(--dark-grey);
+}
+
+
+/* Dropdown-Menü für Forensik Projekte */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: var(--cyan);
+  list-style-type: none;
+  padding: 10px;
+  margin-top: 5px;
+}
+
+/* Dropdown-Menü anzeigen, wenn .active-Klasse angewendet wird */
+.active .dropdown-menu {
+  display: block;
+  z-index: 1;
+
+}
+
+.dropdown-menu a:hover {
+  background-color: var(--black); /* Hintergrundfarbe bei Hover */
+  color: var(--dark-grey); /* Textfarbe bei Hover */
+  cursor: pointer;
+}
+
+.dropdown-menu li:hover {
+  cursor: pointer; /* Zeige die Hand als Cursor, um anzeigebarkeit zu erhöhen */
+}
+
+
+/* TOOLS INHALT */
+.tools-content {
+  width: 100%; /* Füllt die Breite des Elterncontainers */
+  max-width: 1450px; /* Maximale Breite für größere Bildschirme */
+  margin: 15px auto; /* Zentriert den Container und fügt vertikale Abstände hinzu */
+  padding: 0px;
+  font-family: "C64-Pro";
+}
+
+.tools-content p {
+  margin: auto;
+  max-width: 1450px;
+  width: 100%;
+  justify-content: left;
+  color: var(--dark-grey);
+  padding: 20px;
+  font-family: "C64-Pro";
+}
+
+.tools-content h2 {
+  margin: auto;
+  max-width: 1450px;
+  width: 100%;
+  justify-content: left;
+  color: var(--black);
+  background-color: var(--orange);
+  padding: 20px;
+  font-family: "C64-Pro";
+  /*text-shadow: 
+                -5.5px 0 8px  cyan,  /* Linker Rand rot 
+                5.5px 0 8px  cyan;  /* Rechter Rand cyan */
+}
+
+.sub-tools {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  margin-bottom: 15px;
+  max-width: 1450px;
+  width: 100%;
+  border: 2px solid var(--dark-grey);
+}
+
+/* Tools Kategorien */
+.tool-category {
+  flex: 1;
+  margin: 0 10px;
+  padding: 20px;
+}
+
+.tool-category h4 {
+  margin-top: 0;
+  text-align: center;
+  color: var(--dark-grey);
+  text-transform: uppercase;
+  padding-bottom: 10px;
+  font-family: "C64-Pro";
+  font-size: smaller;
+  border-bottom: 2px solid var(--grey);
+}
+
+.tool-category ul {
+  list-style-type: none;
+  padding: 15px 0px;
+  font-size: small;
+}
+
+.tool-category ul li {
+  color: var(--grey);
+  margin-bottom: 10px;
+  text-indent: 10px;
+  position: relative;
+}
+
+.tool-category ul li:before {
+  content: ">";
+  position: absolute;
+  left: -15px;
+  color: var(--grey);
+  font-weight: bold;
+  font-size: small;
+}
+
+.tool-category ul li:hover {
+  background-color: var(--black);
+  color: var(--dark-grey);
+  cursor: pointer;
+}
+
+/* Portfolio Projekte */
+
+.projekte-hauptblock {
+  margin: auto;
+  max-width: 1450px;
+  width: 100%;
+  justify-content: left;
+  color: var(--dark-grey);
+  padding: 20px;
+  font-family: "C64-Pro";
+  border: 2px solid var(--dark-grey);
+  margin-bottom: 20px;
+}
+
+.projekt-kategorie {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.projekt-kategorie h3 {
+  text-align: left;
+}
+
+
+.projekt-kategorie a {
+  color: var(--grey);
+  margin-bottom: 10px;
+  text-indent: 10px;
+  position: relative;
+}
+
+.projekt-kategorie a:before {
+  content: ">";
+  position: absolute;
+  left: -15px;
+  color: var(--grey);
+  font-weight: bold;
+  font-size: small;
+}
+
+/* LINKS -- Headline  */
+.links-headline {
+  width: 100%;
+}
+
+.links-headline h2 {
+  margin: auto;
+  max-width: 1450px;
+  width: 100%;
+  justify-content: left;
+  color: var(--black);
+  background-color: var(--orange);
+  padding: 20px;
+  font-family: "C64-Pro";
+  margin-bottom: 20px;
+  /*text-shadow: 
+  -5.5px 0 8px  cyan,  /* Linker Rand rot 
+  5.5px 0 8px  cyan;  /* Rechter Rand cyan */
+}
+
+.links-headline p {
+  margin: auto;
+  max-width: 1450px;
+  width: 100%;
+  justify-content: left;
+  color: var(--dark-grey);
+  padding: 20px;
+  font-family: "C64-Pro";
+  border: 2px solid var(--dark-grey);
+  margin-bottom: 20px;
+}
+
+/* LINKS  */
+.links-content {
+  display: flex;
+  flex-direction: row; /* Links sollen nebeneinander angeordnet sein */
+  justify-content: space-between; /* Links sollen am linken Rand ausgerichtet sein */
+  align-items: center; /* Zentriert die Links vertikal */
+  margin-right: auto;
+  gap: 75px;
+  font-family: "C64-Pro";
+  margin-bottom: 50px;
+}
+
+.links-category h4 {
+  margin-top: 0;
+  text-align: center;
+  color: var(--dark-grey);
+  text-transform: uppercase;
+  padding-bottom: 10px;
+  font-family: "C64-Pro";
+  font-size: smaller;
+  border-bottom: 2px solid var(--grey);
+}
+
+.links-category ul {
+  list-style-type: none;
+  padding: 15px 0px;
+  font-size: small;
+}
+
+.links-category ul li {
+  color: var(--grey);
+  margin-bottom: 10px;
+  text-indent: 10px;
+  position: relative;
+  
+}
+
+.links-category ul li:before {
+  content: ">";
+  position: absolute;
+  left: -15px;
+  color: var(--grey);
+  font-weight: bold;
+  font-size: small;
+}
+.links-category ul li:hover {
+  background-color: var(--black);
+  color: var(--dark-grey);
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 200px;
+  background-color: var(--grey);
+  padding: 10px;
+  margin-right: 20px;
+  box-shadow: 12px 12px 1px hsla(0, 0%, 0%, 0.8);
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar ul li {
+  padding: 10px;
+}
+
+.sidebar ul li a {
+  color: var(--black);
+  text-decoration: none;
+}
+
+.sidebar ul li a:hover {
+  text-decoration: underline;
+}
+
+.sidebar ul li:hover {
+  background-color: var(--black); /* Hintergrund auf Schwarz ändern */
+}
+
+.sidebar ul li:hover a {
+  color: var(--dark-grey); /* Textfarbe auf Weiß ändern */
+}
+
+.sub-sidebar {
+  border: 3px solid var(--black);
+  padding: 15px;
+}
+
+/* LINKS aus Sidebar */
+.sichtbare-links {
+  margin: auto;
+  padding: 0;
+  width: calc(100% - 40px);
+}
+
+.links {
+  width: calc(100% - 20px); /* Berechnet die Breite, um Platz für die Sidebar zu lassen */
+  display: none;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-left: 10px; /* Abstand zwischen Sidebar und Inhalt */
+  gap: 50px;
+}
+
+.links.active {
+  display: flex; /* Bei Klick auf Kategorie wird die Sidebar eingeblendet */
+}
+
+.links ul {
+  list-style-type: none;
+  padding: 0;
+  text-align: left; /* Zentriert den Text in der Mitte */
+}
+
+.links ul li {
+  margin: 5px 0;
+  padding: 5px 0px;
+
+}
+
+.links a {
+  text-decoration: none;
+  color: var(--grey);
+}
+
+.links a:hover {
+  text-decoration: underline;
+  color: var(--dark-grey);
+}
+
+
+
+
+@media (max-width: 800px) {
+  .main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .left {
+    width: 90%;
+  }
+  .middle {
+    width: 90%;
+  }
+
+  .right {
+    width: 90%;
+  }
+  .sub-category {
+    font-size: medium;
+  }
+
+  .category {
+    font-size: large;
+  }
+}
